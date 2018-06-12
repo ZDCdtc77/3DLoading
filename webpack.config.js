@@ -3,9 +3,10 @@ module.exports = {
     output: {
         path: __dirname,
         filename: './release/bundle.js',
-       /*library: 'triloading',
+        library: 'triloading',
+        libraryExport: "default",
         libraryTarget: 'umd',
-        umdNamedDefine: true*/
+        umdNamedDefine: true
     },
     module: {
         rules: [{

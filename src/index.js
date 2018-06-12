@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-
 // 检验是否浏览器环境
 try {
     document
@@ -7,7 +6,7 @@ try {
     throw new Error('请在浏览器环境下运行')
 }
 
-alert("3dloading");
+alert("3dloading_hot");
 
 let triloading = {
     load(option){
@@ -22,4 +21,4 @@ let triloading = {
     }
 };
 
-window.triloading=window.triloading || triloading;
+export  default (window.triloading || triloading)
