@@ -6,18 +6,18 @@ try {
     throw new Error('请在浏览器环境下运行')
 }
 
-alert("3dloading_hot");
+//alert("3dloading_hot");
 
 let triloading = {
     load(option){
-
+        console.log("triloading begin");
         //document.getElementsByTagName("body");
         var scene = new THREE.Scene();
         var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
         var renderer = new THREE.WebGLRenderer();
     },
     close(index){
-
+        console.log("triloading close");
     }
 };
 

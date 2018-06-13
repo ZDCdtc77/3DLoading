@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app:'./src/index.js',
+        triloading:'./src/index.js',
         vendor:['three']
     },
     output: {

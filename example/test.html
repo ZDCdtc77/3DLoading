@@ -6,7 +6,15 @@
 </head>
 <body>
     <p>example</p>
+    <script>
+        window.onload=function(){
+            var index=triloading.load();
+            setTimeout(function () {
+                triloading.close(index)
+            },10000);
+        }
+    </script>
     <script src="../release/vendor.js"></script>
-    <script src="../release/app.js"></script>
+    <script src="../release/triloading.js"></script>
 </body>
 </html>
