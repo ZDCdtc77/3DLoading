@@ -1,8 +1,13 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        app:'./src/index.js',
+        vendor:['three']
+    },
     output: {
         path: __dirname,
-        filename: './release/bundle.js',
+        filename: './release/[name].js',
         library: 'triloading',
         libraryExport: "default",
         libraryTarget: 'umd',
@@ -14,5 +19,15 @@ module.exports = {
             exclude: /(node_modules)/,
             loader: 'babel-loader'
         }]
-    }
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    name: "vendor",
+                    chunks: "initial",
+                }
+            }
+        }
+    },
 }
