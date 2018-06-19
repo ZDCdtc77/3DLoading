@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         triloading:'./src/index.js',
-        vendor:['three']
+        vendor:['three','babel-polyfill']
     },
     output: {
         path: __dirname,
