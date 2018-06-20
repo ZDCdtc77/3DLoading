@@ -1,6 +1,25 @@
 @nice-blue: #5B83AD;
 @light-blue: @nice-blue + #111;
+@popWidth:150px;
+@popHeight:80px;
 
-body{
-  color: @light-blue;
+.tri_mask{
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  bottom:0;
+  background: #000;
+  opacity: 0.8;
+}
+.tri_pop{
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-left: -@popWidth/2;
+  margin-top: -@popHeight/2;
+  width: @popWidth;
+  height: @popHeight;
+  background: @nice-blue;
+  border-radius: 5px;
 }

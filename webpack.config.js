@@ -4,7 +4,7 @@ module.exports = {
     devtool: '#source-map',
     entry: {
         triloading:'./src/index.js',
-        vendor:['three','babel-polyfill']
+        /*vendor:['three','babel-polyfill']*/ //把第三方Js打包到单独的文件
     },
     output: {
         path: __dirname,
@@ -34,7 +34,7 @@ module.exports = {
             }]
         }]
     },
-    optimization: {
+/*    optimization: {
         splitChunks: {
             cacheGroups: {
                 commons: {
@@ -43,5 +43,5 @@ module.exports = {
                 }
             }
         }
-    },
+    },*/
 }
