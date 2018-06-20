@@ -3,8 +3,8 @@ var webpack = require('webpack');
 module.exports = {
     devtool: '#source-map',
     entry: {
-        vendor:['three'],
         triloading:'./src/index.js',
+        vendor:['three','babel-polyfill']
     },
     output: {
         path: __dirname,
