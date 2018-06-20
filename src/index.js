@@ -30,7 +30,7 @@ let triloading = {
         eMask.appendChild(ePop);
         document.body.appendChild(eMask);
 
-        //创建loading效果
+        //选择loading效果
         let effectConstructor
         if (!option || !option.type) {
             //wireFrame效果：默认
@@ -41,6 +41,7 @@ let triloading = {
             effectConstructor = effectsConstructors[option.type]
         }
 
+        //创建loading效果
         if (effectConstructor && typeof effectConstructor === 'function') {
             const effect = new effectConstructor(_Utils._id, ePop);
             effect._run();
@@ -51,7 +52,7 @@ let triloading = {
         }
     },
     close(id) {
-        //销毁指定id的读取效果，或者全部销毁
+        //销毁指定id的读取效果，未指定id全部销毁
         _Utils._instances = _Utils._instances.filter(_inst => {
             if (!id || _inst.id == id) {
                 _inst._destory();
