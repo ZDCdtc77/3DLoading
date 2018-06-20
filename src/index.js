@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import './less/index.less'
 // 检验是否浏览器环境
 try {
     document

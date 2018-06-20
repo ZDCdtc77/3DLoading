@@ -1,9 +1,10 @@
 var webpack = require('webpack');
 
 module.exports = {
+    devtool: '#source-map',
     entry: {
+        vendor:['three'],
         triloading:'./src/index.js',
-        vendor:['three']
     },
     output: {
         path: __dirname,
@@ -18,6 +19,19 @@ module.exports = {
             test: /\.js?$/,
             exclude: /(node_modules)/,
             loader: 'babel-loader'
+        },{
+            test: /\.less$/,
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader', options: {
+                    sourceMap: true
+                }
+            }, {
+                loader: 'less-loader', options: {
+                    sourceMap: true
+                }
+            }]
         }]
     },
     optimization: {
