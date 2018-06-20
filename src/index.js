@@ -9,40 +9,40 @@ try {
     throw new Error('请在浏览器环境下运行')
 }
 
-const _Utils={
-    _id:1,
-    _instances:[]
+const _Utils = {
+    _id: 1,
+    _instances: []
 }
 
 let triloading = {
-    _Utils:_Utils,
-    load(option){
+    _Utils: _Utils,
+    load(option) {
         //创建遮罩DOM
-        let slotMask=document.createElement('div');
-        slotMask.innerHTML="<div class='tri_mask'></div>";
-        let eMask=slotMask.children[0];
+        let slotMask = document.createElement('div');
+        slotMask.innerHTML = "<div class='tri_mask'></div>";
+        let eMask = slotMask.children[0];
 
         //创建弹出层
-        let slotPop=document.createElement('div');
-        slotPop.innerHTML="<div class='tri_pop'></div>";
-        let ePop=slotPop.children[0];
+        let slotPop = document.createElement('div');
+        slotPop.innerHTML = "<div class='tri_pop'></div>";
+        let ePop = slotPop.children[0];
 
         eMask.appendChild(ePop);
         document.body.appendChild(eMask);
 
         //创建loading效果
         let effectConstructor
-        if(!option || !option.type){
+        if (!option || !option.type) {
             //wireFrame效果：默认
-            effectConstructor =  effectsConstructors["wireFrame"]
+            effectConstructor = effectsConstructors["wireFrame"]
         }
-        else{
+        else {
             //其他效果
-            effectConstructor =  effectsConstructors[option.type]
+            effectConstructor = effectsConstructors[option.type]
         }
 
-        if (effectConstructor && typeof effectConstructor === 'function'){
-            const effect = new effectConstructor(_Utils._id,ePop);
+        if (effectConstructor && typeof effectConstructor === 'function') {
+            const effect = new effectConstructor(_Utils._id, ePop);
             effect._run();
 
             _Utils._instances.push(effect);
@@ -50,13 +50,16 @@ let triloading = {
             return _Utils._id++;
         }
     },
-    close(id){
-         _Utils._instances.forEach(_inst => {
-             if(!id || _inst.id==id){
-                 _inst._destory();
-             }
-         })
+    close(id) {
+        //销毁指定id的读取效果，或者全部销毁
+        _Utils._instances = _Utils._instances.filter(_inst => {
+            if (!id || _inst.id == id) {
+                _inst._destory();
+                return false;
+            }
+            return true;
+        })
     }
 };
 
-export  default (window.triloading || triloading)
+export default (window.triloading || triloading)
