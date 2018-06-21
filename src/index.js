@@ -43,13 +43,24 @@ let triloading = {
 
         //创建loading效果
         if (effectConstructor && typeof effectConstructor === 'function') {
-            const effect = new effectConstructor(_Utils._id, ePop);
+            const id = _Utils._id
+            const effect = new effectConstructor(id, ePop);
             effect._run();
 
             _Utils._instances.push(effect);
 
+
+            if (option && option.time) {
+                //设置了自动关闭
+                setTimeout(function () {
+                    triloading.close(id)
+                }, option.time);
+            }
+
             return _Utils._id++;
         }
+
+
     },
     close(id) {
         //销毁指定id的读取效果，未指定id全部销毁
