@@ -14,7 +14,7 @@ const _Utils = {
     _instances: []
 }
 
-let triloading = {
+const triloading = {
     _Utils: _Utils,
     load(option) {
         //创建遮罩DOM

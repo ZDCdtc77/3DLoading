@@ -12,9 +12,9 @@ wireFrame.prototype = {
     constructor: wireFrame,
 
     _run: function () {
-        var scene = new THREE.Scene();//相当于DATABOX
-        var camera = new THREE.PerspectiveCamera(30, this.el.clientWidth / this.el.clientHeight, 0.1, 1000);
-        var renderer = new THREE.WebGLRenderer({alpha: true});//相当于NETWORK alpha为true时 背景 透明
+        let scene = new THREE.Scene();//相当于DATABOX
+        let camera = new THREE.PerspectiveCamera(30, this.el.clientWidth / this.el.clientHeight, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer({alpha: true});//相当于NETWORK alpha为true时 背景 透明
 
         this.scene = scene;
         this.camera = camera;
@@ -24,15 +24,15 @@ wireFrame.prototype = {
         renderer.setSize(this.el.clientWidth, this.el.clientHeight);
         this.el.appendChild(renderer.domElement);
 
-        var geometry = new THREE.BoxGeometry(2, 2, 2);
-        var material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true});
-        var cube = new THREE.Mesh(geometry, material);
+        let geometry = new THREE.BoxGeometry(2, 2, 2);
+        let material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true});
+        let cube = new THREE.Mesh(geometry, material);
         this.scene.add(cube);
 
         camera.position.y = 1;
         camera.position.z = 10;
 
-        var animate = function () {
+        let animate = function () {
             requestAnimationFrame(animate);
 
             cube.rotation.x += 0.05;
@@ -57,8 +57,8 @@ wireFrame.prototype = {
     },
 
     _destory: function () {
-        let parentNode = this.el.parentNode;
-        let ancestorsNode = parentNode.parentNode;
+        const parentNode = this.el.parentNode;
+        const ancestorsNode = parentNode.parentNode;
         ancestorsNode.removeChild(parentNode);
         this.scene = null;
         this.camera = null;
