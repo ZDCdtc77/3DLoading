@@ -59,8 +59,6 @@ let triloading = {
 
             return _Utils._id++;
         }
-
-
     },
     close(id) {
         //销毁指定id的读取效果，未指定id全部销毁

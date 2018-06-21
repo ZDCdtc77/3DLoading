@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     devtool: '#source-map',
     entry: {
-        triloading:'./src/index.js',
+        triloading: './src/index.js',
         /*vendor:['three','babel-polyfill']*/ //把第三方Js打包到单独的文件
     },
     output: {
@@ -19,7 +19,7 @@ module.exports = {
             test: /\.js?$/,
             exclude: /(node_modules)/,
             loader: 'babel-loader'
-        },{
+        }, {
             test: /\.less$/,
             use: [{
                 loader: 'style-loader'
@@ -34,14 +34,14 @@ module.exports = {
             }]
         }]
     },
-/*    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                commons: {
-                    name: "vendor",
-                    chunks: "initial",
-                }
-            }
-        }
-    },*/
+    /*    optimization: {
+     splitChunks: {
+     cacheGroups: {
+     commons: {
+     name: "vendor",
+     chunks: "initial",
+     }
+     }
+     }
+     },*/
 }
